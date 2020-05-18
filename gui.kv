@@ -1,0 +1,461 @@
+<LoginWindow>:
+    email: email
+    password: password
+
+    FloatLayout:
+        Label:
+            text:"Email: "
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.1, "top":0.9}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+            id: email
+            font_size: (root.width**2 + root.height**2) / 13**4
+            multiline: False
+            pos_hint: {"x": 0.45 , "top":0.9}
+            size_hint: 0.4, 0.15
+        Label:
+            text:"Password: "
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.1, "top":0.7}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+            id: password
+            font_size: (root.width**2 + root.height**2) / 13**4
+            multiline: False
+            pos_hint: {"x": 0.45 , "top":0.7}
+            size_hint: 0.4, 0.15
+        Button:
+            pos_hint:{"x":0.3,"y":0.3}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 13**4
+            text: "Login"
+            on_release:
+                root.manager.transition.direction = "right"
+                root.loginBtn()
+        Button:
+            pos_hint:{"x":0.3,"y":0.2}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Don't have an account? Create One"
+            on_release:
+                root.manager.transition.direction = "right"
+                root.createBtn()
+<CreateAccountWindow>:
+    namee: namee
+    email: email
+    password: password
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Create an Account"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Name: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: namee
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8-0.13}
+                text: "Email: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: email
+                pos_hint: {"x":0.5, "top":0.8-0.13}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8-0.13*2}
+                text: "Password: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: password
+                pos_hint: {"x":0.5, "top":0.8-0.13*2}
+                size_hint: 0.4, 0.12
+                multiline: False
+                password: True
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.25}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Already have an Account? Log In"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.loginBtn()
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Create Account"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.manager.transition.direction = "left"
+                root.createBtn()
+
+<Menu>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        Button:
+            text: 'Add an Expense'
+            on_release:
+                root.manager.transition.direction = "left"
+                root.addExpenseBt()
+        Button:
+            text: 'Add an Income'
+            on_release:
+                root.manager.transition.direction = "left"
+                root.addIncomeBt()
+        Button:
+            text: 'View sum of Expense'
+            on_release:
+                root.manager.transition.direction = "left"
+                root.sumExpenseBt()
+        Button:
+            text: 'View sum of Income'
+            on_release:
+                root.manager.transition.direction = "left"
+                root.sumIncomeBt()
+        Button:
+            text: 'Remaining Funds(Income - Expense)'
+            on_release:
+                root.manager.transition.direction = "left"
+                root.remaingBt()
+        Button:
+            text: 'Reset(Irreversible)'
+            on_release:
+                root.manager.transition.direction = "left"
+                root.reset()
+
+        Button:
+            text: 'LogOut'
+            on_release:
+                root.manager.transition.direction = "right"
+                root.backBt()
+
+<TakeE>:
+    amt: amt
+    appli: appli
+    email: email
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Verify Email: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: email
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8-0.13}
+                text: "Amount: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: amt
+                pos_hint: {"x":0.5, "top":0.8-0.13}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8-0.13*2}
+                text: "Application: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: appli
+                pos_hint: {"x":0.5, "top":0.8-0.13*2}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.25}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Submit"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submitBtn()
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Back"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.manager.transition.direction = "left"
+                root.backBtn()
+
+<TakeI>:
+    amt: amt
+    sou: sou
+    email: email
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Verify Email: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: email
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8-0.13}
+                text: "Amount: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: amt
+                pos_hint: {"x":0.5, "top":0.8-0.13}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8-0.13*2}
+                text: "Application: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: sou
+                pos_hint: {"x":0.5, "top":0.8-0.13*2}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.25}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Submit"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submitBtn()
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Back"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.manager.transition.direction = "left"
+                root.backBtn()
+
+<showE>:
+    email: email
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Verify Email: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: email
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.25}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Submit"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submitBtn()
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Back"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.manager.transition.direction = "left"
+                root.backBtn()
+
+<showI>:
+    email: email
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Verify Email: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: email
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.25}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Submit"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submitBtn()
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Back"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.manager.transition.direction = "left"
+                root.backBtn()
+
+<Rem>:
+    email: email
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Verify Email: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: email
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.25}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Submit"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submitBtn()
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Back"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.manager.transition.direction = "left"
+                root.backBtn()
+
+<Res>:
+    email: email
+
+    FloatLayout:
+        cols:1
+
+        Label:
+            text: "Note that this is an irreversible process. All data will be lost!"
+            size_hint: 0.4, 0.2
+            pos_hint: {"x":0.2, "top":1}
+            font_size: (root.width**2 + root.height**2) / 15**4
+
+        FloatLayout:
+            size: root.width, root.height/2
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Verify Email: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: email
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.25}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Submit"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submitBtn()
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Back"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.manager.transition.direction = "left"
+                root.backBtn()
+
