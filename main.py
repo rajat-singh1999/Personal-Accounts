@@ -201,10 +201,10 @@ for screen in screens:
 sm.current = "login"
 
 
-class MyMainApp(App):
+class Personal_Accounts(App):
     def build(self):
         return sm
 
 
 if __name__ == "__main__":
-    MyMainApp().run()
+    Personal_Accounts().run()
